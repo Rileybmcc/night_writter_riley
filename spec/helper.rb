@@ -1,0 +1,2 @@
+require 'SimpleCov'
+SimpleCov.start

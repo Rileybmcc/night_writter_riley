@@ -36,7 +36,17 @@ class ConvertToEnglish
     lett_arrays = convert_setup(input_string)
     final_message = lett_arrays.map {
       |chr| braille_hash.keys.select { |key|braille_hash[key] == chr } }
-    final_message.flatten.join
+    line_management(final_message.flatten.join)
+  end
+
+  def line_management(string)
+    formatted_string = ""
+    loop_num = (string.length.to_f / 80).ceil
+    loop_num.times do |index|
+      formatted_string.concat string[(0 + index*80)..(79 + index*80)]
+      formatted_string.concat "\n" if index != loop_num - 1
+    end
+    formatted_string
   end
 
 end

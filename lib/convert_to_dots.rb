@@ -3,9 +3,16 @@ require './lib/translator'
 class ConvertToDots
   include Translator
 
-  def convert_this_text(input_string)
+  def txt_into_string(file)
+    new_string = ""
+    file.each_char  { |chr| new_string.concat "#{chr}" }
+    new_string
+  end
+
+  def convert_this_text(input)
+    readable_file = txt_into_string(input)
     new_message = []
-    runon_string = input_string.downcase.delete(" ")
+    runon_string = readable_file.downcase#.delete(" ")
     wasd = runon_string.each_char { |chr| new_message << braille_hash[chr] }
     new_message
   end
@@ -23,7 +30,6 @@ class ConvertToDots
     end
     new_format
   end
-
 
 
 end

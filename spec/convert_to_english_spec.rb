@@ -1,5 +1,5 @@
 require './lib/convert_to_english'
-# require './test'
+require './helper'
 
 RSpec.describe ConvertToEnglish do
 
@@ -32,6 +32,19 @@ RSpec.describe ConvertToEnglish do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test_braille.txt', "r")
     expect(eng_printer.to_eng(file_data)).to eq("hi")
+  end
+
+  it 'can convert braille to english including spaces' do
+    eng_printer = ConvertToEnglish.new
+    file_data = File.open('./test_braille1.txt', "r")
+    expect(eng_printer.to_eng(file_data)).to eq("howdy there yall, how’s it going")
+  end
+
+  it 'can split string into lines of 80' do
+    eng_printer = ConvertToEnglish.new
+    string = "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
+    expect(eng_printer.line_management(string)).to eq(
+      "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\nll")
   end
 
 end

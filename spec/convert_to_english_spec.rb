@@ -37,7 +37,7 @@ RSpec.describe ConvertToEnglish do
   it 'can convert braille to english including spaces' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test_braille1.txt', "r")
-    expect(eng_printer.to_eng(file_data)).to eq("howdy there yall, how's it going")
+    expect(eng_printer.to_eng(file_data)).to eq("howdy there yall, how’s it going")
   end
 
   it 'can split string into lines of 80' do

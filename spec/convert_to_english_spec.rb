@@ -1,5 +1,5 @@
 require './lib/convert_to_english'
-# require './test'
+require './helper'
 
 RSpec.describe ConvertToEnglish do
 

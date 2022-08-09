@@ -1,4 +1,5 @@
 require './lib/convert_to_dots'
+require './helper'
 
 RSpec.describe ConvertToDots do
 

@@ -10,4 +10,4 @@ file_write = File.open(ARGV[1], "w")
 
 puts "Created #{ARGV[1]} containing #{file_chr_length.length} characters"
 
-file_write.write(b_printer.organize(file_read))
+file_write.write(b_printer.to_br(file_read))

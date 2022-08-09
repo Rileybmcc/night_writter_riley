@@ -17,7 +17,7 @@ class ConvertToDots
     new_message
   end
 
-  def organize(input_string)
+  def to_br(input_string)
     letters = convert_this_text(input_string).select{ |letter| letter != nil }
     new_format = ""
     num_lines = (letters.count.to_f / 40).ceil

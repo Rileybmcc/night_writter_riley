@@ -23,10 +23,7 @@ RSpec.describe ConvertToDots do
 
   it 'can turn array of braille into three separate lines' do
     b_printer = ConvertToDots.new
-    expect(b_printer.organize("hi")).to eq("0..0\n000.\n....")
+    expect(b_printer.to_br("hi")).to eq("0..0\n000.\n....")
   end
-
-
-
 
 end

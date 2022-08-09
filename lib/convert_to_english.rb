@@ -36,7 +36,7 @@ class ConvertToEnglish
     lett_arrays = convert_setup(input_string)
     final_message = lett_arrays.map {
       |chr| braille_hash.keys.select { |key|braille_hash[key] == chr } }
-    final_message.flatten.join
+    line_management(final_message.flatten.join)
   end
 
   def line_management(string)

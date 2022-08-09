@@ -3,8 +3,7 @@ require './lib/convert_to_english'
 eng_printer = ConvertToEnglish.new
 
 file_read_data = File.open(ARGV[0], "r")
-file_read = file_read_data.read
-file_chr_length = file_read.each_char { |chr| "#{chr}" }.gsub("\n", "")
+file_chr_length = file_read_data.read.each_char { |chr| "#{chr}" }.gsub("\n", "")
 
 file_write = File.open(ARGV[1], "w")
 

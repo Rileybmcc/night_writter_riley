@@ -8,6 +8,13 @@ RSpec.describe ConvertToDots do
     expect(braille_printer).to be_instance_of(ConvertToDots)
   end
 
+  it 'can convert file to string' do
+    b_printer = ConvertToDots.new
+    file_data = File.open('./test.txt', "r")
+
+    expect(b_printer.txt_into_string(file_data)).to eq("hello\npeace\nim\n world\n out\n napping\n")
+  end
+
   it 'can translate string into braille arrays' do
     b_printer = ConvertToDots.new
     expect(b_printer.convert_this_text("hi")).to eq(

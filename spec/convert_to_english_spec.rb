@@ -34,4 +34,11 @@ RSpec.describe ConvertToEnglish do
     expect(eng_printer.to_eng(file_data)).to eq("hi")
   end
 
+  it 'can split string into lines of 80' do
+    eng_printer = ConvertToEnglish.new
+    string = "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
+    expect(eng_printer.line_management(string)).to eq(
+      "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll\nll")
+  end
+
 end

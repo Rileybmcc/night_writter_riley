@@ -32,4 +32,11 @@ class ConvertToEnglish
     final_prep
   end
 
+  def to_eng(input_string)
+    lett_arrays = convert_setup(input_string)
+    final_message = lett_arrays.map {
+      |chr| braille_hash.keys.select { |key|braille_hash[key] == chr } }
+    final_message.flatten.join
+  end
+
 end

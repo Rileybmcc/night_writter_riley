@@ -21,6 +21,15 @@ class ConvertToEnglish
     final_array
   end
 
-
+  def convert_setup(file)
+    final_prep =[]
+    data = three_lines(file)
+    (data[0].length / 2).times do |index|
+     final_prep << [data[0][(0 + (2 * index))..(1 + (2 * index))],
+                    data[1][(0 + (2 * index))..(1 + (2 * index))],
+                      data[2][(0 + (2 * index))..(1 + (2 * index))]]
+    end
+    final_prep
+  end
 
 end

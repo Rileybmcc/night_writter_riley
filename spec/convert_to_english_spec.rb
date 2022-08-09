@@ -24,10 +24,14 @@ RSpec.describe ConvertToEnglish do
 
   it 'can create braille hashes before convertion' do
     eng_printer = ConvertToEnglish.new
-    file_data = File.open('./test.txt', "r")
+    file_data = File.open('./test_braille.txt', "r")
     expect(eng_printer.convert_setup(file_data)).to eq([["0.","00",".."], [".0","0.",".."]])
   end
 
-
+  it 'can convert braille to english' do
+    eng_printer = ConvertToEnglish.new
+    file_data = File.open('./test_braille.txt', "r")
+    expect(eng_printer.convert_setup(file_data)).to eq("hi")
+  end
 
 end

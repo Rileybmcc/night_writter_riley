@@ -15,5 +15,11 @@ RSpec.describe ConvertToEnglish do
     expect(eng_printer.file_by_line(file_data)).to eq(["hello", "peace", "i'm", " world", " out", " napping"])
   end
 
+  it 'can create hash of txt lines' do
+      eng_printer = ConvertToEnglish.new
+      file_data = File.open('./test.txt', "r")
+      expect(eng_printer.three_lines(file_data)).to eq(["hello world", "peace out", "i'm napping"])
+    end
+    
 
 end

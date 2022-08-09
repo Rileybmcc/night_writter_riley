@@ -31,7 +31,7 @@ RSpec.describe ConvertToEnglish do
   it 'can convert braille to english' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test_braille.txt', "r")
-    expect(eng_printer.convert_setup(file_data)).to eq("hi")
+    expect(eng_printer.to_eng(file_data)).to eq("hi")
   end
 
 end

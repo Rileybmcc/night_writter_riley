@@ -6,8 +6,8 @@ class ConvertToEnglish
   def file_by_line(data)
     line_array = []
     File.readlines(data).each do |line|
-        line_array << "#{line}"
-      end
+      line_array << "#{line}"
+    end
     line_array.map { |line| line.delete("\n") }
   end
 
@@ -25,7 +25,7 @@ class ConvertToEnglish
     final_prep =[]
     data = three_lines(file)
     (data[0].length / 2).times do |index|
-     final_prep << [data[0][(0 + (2 * index))..(1 + (2 * index))],
+      final_prep << [data[0][(0 + (2 * index))..(1 + (2 * index))],
                     data[1][(0 + (2 * index))..(1 + (2 * index))],
                       data[2][(0 + (2 * index))..(1 + (2 * index))]]
     end

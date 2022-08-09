@@ -3,12 +3,12 @@ require './lib/convert_to_english'
 
 RSpec.describe ConvertToEnglish do
 
-  it 'can instantiate ConvertToEnglish' do
+  xit 'can instantiate ConvertToEnglish' do
     eng_printer = ConvertToEnglish.new
     expect(eng_printer).to be_instance_of(ConvertToEnglish)
   end
 
-  it 'can create hash of txt lines' do
+  xit 'can create hash of txt lines' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test.txt', "r")
     answer = ["hello", "peace", "im", " world", " out", " napping"]
@@ -16,25 +16,31 @@ RSpec.describe ConvertToEnglish do
     expect(eng_printer.file_by_line(file_data)).to eq(["hello", "peace", "im", " world", " out", " napping"])
   end
 
-  it 'can create hash of txt lines' do
+  xit 'can create hash of txt lines' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test.txt', "r")
     expect(eng_printer.three_lines(file_data)).to eq(["hello world", "peace out", "im napping"])
   end
 
-  it 'can create braille hashes before convertion' do
+  xit 'can create braille hashes before convertion' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test_braille.txt', "r")
     expect(eng_printer.convert_setup(file_data)).to eq([["0.","00",".."], [".0","0.",".."]])
   end
 
-  it 'can convert braille to english' do
+  xit 'can convert braille to english' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test_braille.txt', "r")
     expect(eng_printer.to_eng(file_data)).to eq("hi")
   end
 
-  it 'can split string into lines of 80' do
+  it 'can convert braille to english including spaces' do
+    eng_printer = ConvertToEnglish.new
+    file_data = File.open('./test_braille1.txt', "r")
+    expect(eng_printer.to_eng(file_data)).to eq("howdy there yall, how's it going")
+  end
+
+  xit 'can split string into lines of 80' do
     eng_printer = ConvertToEnglish.new
     string = "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
     expect(eng_printer.line_management(string)).to eq(

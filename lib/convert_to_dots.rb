@@ -12,7 +12,7 @@ class ConvertToDots
   def convert_this_text(input)
     readable_file = txt_into_string(input)
     new_message = []
-    runon_string = readable_file.downcase.delete(" ")
+    runon_string = readable_file.downcase#.delete(" ")
     wasd = runon_string.each_char { |chr| new_message << braille_hash[chr] }
     new_message
   end

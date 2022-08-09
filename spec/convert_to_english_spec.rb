@@ -11,15 +11,23 @@ RSpec.describe ConvertToEnglish do
   it 'can create hash of txt lines' do
     eng_printer = ConvertToEnglish.new
     file_data = File.open('./test.txt', "r")
-    # allow(eng_printer).to receive(eng_printer.file_by_line(file_data)).and_return(["hello", "peace", "i'm", " world", " out", " napping"])
-    expect(eng_printer.file_by_line(file_data)).to eq(["hello", "peace", "i'm", " world", " out", " napping"])
+    answer = ["hello", "peace", "im", " world", " out", " napping"]
+    # allow(eng_printer).to receive(eng_printer.file_by_line(file_data)).and_return(answer)
+    expect(eng_printer.file_by_line(file_data)).to eq(["hello", "peace", "im", " world", " out", " napping"])
   end
 
   it 'can create hash of txt lines' do
-      eng_printer = ConvertToEnglish.new
-      file_data = File.open('./test.txt', "r")
-      expect(eng_printer.three_lines(file_data)).to eq(["hello world", "peace out", "i'm napping"])
-    end
-    
+    eng_printer = ConvertToEnglish.new
+    file_data = File.open('./test.txt', "r")
+    expect(eng_printer.three_lines(file_data)).to eq(["hello world", "peace out", "im napping"])
+  end
+
+  it 'can create braille hashes before convertion' do
+    eng_printer = ConvertToEnglish.new
+    file_data = File.open('./test.txt', "r")
+    expect(eng_printer.convert_setup(file_data)).to eq([["0.","00",".."], [".0","0.",".."]])
+  end
+
+
 
 end

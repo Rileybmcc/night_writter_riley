@@ -11,7 +11,7 @@ class ConvertToDots
   end
 
   def organize(input_string)
-    letters = convert_this_text(input_string)
+    letters = convert_this_text(input_string).select{ |letter| letter != nil }
     new_format = ""
     num_lines = (letters.count.to_f / 40).ceil
     num_lines.times do |index|
